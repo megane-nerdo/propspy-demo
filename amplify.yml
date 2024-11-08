@@ -1,0 +1,32 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            # Install pnpm globally
+            - npm install -g pnpm
+            # Install project dependencies
+            - pnpm install
+        build:
+          commands:
+            # Run the Vite build command
+            - pnpm run build
+      artifacts:
+        # Configure the output directory for Vite (usually 'dist' for Vite projects)
+        baseDirectory: dist
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*
+      environment:
+        variables:
+          # Add any necessary environment variables here
+          # EXAMPLE_ENV_VAR: "value"
+  - backend:
+      phases:
+        build:
+          commands:
+            # You can leave this empty if there’s no backend or specific build step for it
+            - echo "No backend build steps required"
