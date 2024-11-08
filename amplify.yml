@@ -1,6 +1,7 @@
 version: 1
 applications:
-  - frontend:
+  - appRoot: propspy-demo # Specify the correct directory if different
+    frontend:
       phases:
         preBuild:
           commands:
@@ -24,9 +25,3 @@ applications:
         variables:
           # Add any necessary environment variables here
           # EXAMPLE_ENV_VAR: "value"
-  - backend:
-      phases:
-        build:
-          commands:
-            # You can leave this empty if there’s no backend or specific build step for it
-            - echo "No backend build steps required"
